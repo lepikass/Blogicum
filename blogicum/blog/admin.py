@@ -16,11 +16,13 @@ class LocationAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'category', 'location', 'is_published', 'pub_date', 'created_at')
+    list_display = (
+        'title', 'author', 'category', 'location',
+        'is_published', 'pub_date', 'created_at')
     list_filter = ('is_published', 'category', 'location')
     search_fields = ('title', 'text')
     date_hierarchy = 'pub_date'
-    prepopulated_fields = {'slug': ('title',)} 
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Location)
